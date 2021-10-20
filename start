@@ -29,17 +29,16 @@ _set_bot () {
     zippath="Man-Userbot.zip"
     echo "  ⚜ Downloading Man-UserBot Source Code..."
     wget -q $(_get_repolink) -O "$zippath"
-    echo "  Unpacking Data ..."
+    echo "  ⚜ Unpacking Data..."
     PATHMAN=$(zipinfo -1 "$zippath" | grep -v "/.");
     unzip -qq "$zippath"
-    echo "Done"
-    echo "  LegendBot V2.1 Cleaning.."
+    echo "  ⚜ Done"
+    echo "  ⚜ Man-UserBot Cleaning..."
     rm -rf "$zippath"
     sleep 5
     cd $PATHMAN
     echo "    • Starting Man-UserBot •    "
 
-    python3 ../setup/updater.py ../requirements.txt requirements.txt
     python3 -m userbot
 }
 
