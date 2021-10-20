@@ -1,86 +1,85 @@
 {
-  "name": "Catuserbot",
-  "description": "A simple Telegram userbot based on Telethon . Maintained by Sandeep ",
-  "logo": "https://telegra.ph/file/3d60313110c58684b31ea.jpg",
-  "keywords": [
-    "plugin",
-    "modular",
-    "productivity"
-  ],
-  "repository": "https://github.com/sandy1709/catuserbot/",
+  "name": "ManUserBot",
+  "description": "[ManUserBot] userbot Telegram modular yang berjalan pada Python 3.9+",
+  "logo": "https://telegra.ph/file/9dc4e335feaaf6a214818.jpg",
+  "keywords": ["telegram", "userbot", "man-userbot", "modular", "python"],
+  "repository": "https://github.com/mrismanaziz/Man-Pack",
   "website": "#TODO",
   "success_url": "#TODO",
   "env": {
-    "ALIVE_NAME": {
-      "description": "give your name",
-      "value": ""
-    },
-    "APP_ID": {
-      "description": "Get this value from my.telegram.org! Please do not steal",
-      "value": ""
+    "API_KEY": {
+      "description": "Dapatkan API KEY di web my.telegram.org. Masukan yg APP ID Telegram",
+      "required": true
     },
     "API_HASH": {
-      "description": "Get this value from my.telegram.org! Please do not steal",
-      "value": ""
+      "description": "Dapatkan Api hash di web my.telegram.org.",
+      "required": true
     },
-    "STRING_SESSION": {
-      "description": "Get this value by running python3 telesetup.py locally or https://generatestringsession.sandeep1709.repl.run",
-      "value": ""
-    },
-    "TG_BOT_TOKEN": {
-      "description": "Needed for inline buttons maker. Make a bot at http://telegram.dog/BotFather and get the token of your bot.Worth it. Get it.",
-      "value": ""
-    },
-    "COMMAND_HAND_LER": {
-      "description": "Set this one with only one the symbol to use it before your command to run like . , ' `",
-      "value": ".",
-      "required": false
-    },
-    "ENV": {
-      "description": "Setting this to ANYTHING will enable heroku.",
-      "value": "ANYTHING",
-      "required": false
-    },
-    "HEROKU_API_KEY": {
-      "description": "Required for updating the bot and other stuff get it from https://dashboard.heroku.com/account",
-      "value": "",
-      "required": false
+     "STRING_SESSION": {
+      "description": "Dapatkan String Session di Grup » https://t.me/sharinguserbot » Lalu ketik #string",
+      "required": true
     },
     "HEROKU_APP_NAME": {
-      "description": "YOUR app name ",
-      "value": "",
+      "description": "Nama App heroku, Nama App yang paling pertama di isi (liat paling atas)",
+      "required": true
+    },
+    "HEROKU_API_KEY": {
+      "description": "Ambil Heroku API KEY mu disini » https://dashboard.heroku.com/account",
+      "required": true
+    },
+    "BOTLOG_CHATID": {
+      "description": "Buatlah sebuah grup dan masukan bot @MissRose_bot lalu ketik /id, masukan id grup nya disini. ex: '-123456'",
+      "value": "Isi id grup mu wajib dengan awalan -100",
+      "required": true
+    },
+    "PM_AUTO_BAN": {
+      "description": "PM Auto-Ban adalah module untuk bot welcome otomatis ketika ada orang ngePC kamu,jika Mau di aktifkan ubah ke True",
+      "value": "False",
       "required": false
     },
-    "TZ": {
-      "description": "Required for Correct Time on autopic/get time. Know your timezone from http://www.timezoneconverter.com/cgi-bin/findzone.tzc",
-      "value": "Asia/Kolkata",
+    "ALIVE_NAME": {
+      "description": "Masukan Nama untuk menunjukan pesan di perintah .alive / .afk / .ping dan lain lain",
+      "required": true
+    },
+    "ALIVE_LOGO": {
+      "description": "Gambar dalam module .alive",
+      "value": "https://telegra.ph/file/9dc4e335feaaf6a214818.jpg",
       "required": false
     },
-    "UPSTREAM_REPO": {
-      "description": "Use either goodcat or badcat .if you need custom deploy then type your git repo link",
-      "value": "goodcat",
+    "ALIVE_TEKS_CUSTOM": {
+      "description": "Pesan Text Kustom Alive Mu Untuk Perintah .alive (Isi Terserah)",
+      "required": false
+    },
+    "S_PACK_NAME": {
+      "description": "Costum Nama Sticker Pack Mu",
+      "required": false
+    },
+    "WEATHER_DEFCITY": {
+      "description": "isi kota kamu tinggal untuk default module .weather / cuaca",
+      "value": "Jakarta",
       "required": false
     }
   },
-  "addons": [{
+  "addons": [
+    {
     "plan": "heroku-postgresql",
-    "options": {
-      "version": "12"
+      "options": {
+        "version": "12"
+      }
     }
-  }],
-  "buildpacks": [{
-    "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
-  },{
-    "url":"https://github.com/heroku/heroku-buildpack-google-chrome"
-  },{
-    "url":"https://github.com/heroku/heroku-buildpack-chromedriver"
-  },{
-    "url": "https://github.com/opendoor-labs/heroku-buildpack-p7zip"
-  },{
-    "url": "https://github.com/heroku/heroku-buildpack-apt.git"
-  },{
-    "url": "https://github.com/chrismytton/heroku-buildpack-jq"
-  },{
-    "url": "heroku/python"
-  }]
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    },
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+    }
+  ],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  }
 }
