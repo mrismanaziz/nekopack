@@ -1,13 +1,10 @@
-FROM sandy1709/catuserbot:slim-buster
+FROM mrismanaziz/man-userbot:buster
 
 #clonning repo 
-RUN git clone https://github.com/sandy1709/catuserbot.git /root/userbot
+RUN git clone https://github.com/mrismanaziz/Man-Userbot.git /home/manuserbot
 #working directory 
-WORKDIR /root/userbot
+WORKDIR /home/manuserbot
 
-# Install requirements
-RUN pip3 install -U -r requirements.txt
+ENV PATH="/home/manuserbot/bin:$PATH"
 
-ENV PATH="/home/userbot/bin:$PATH"
-
-CMD ["python3","-m","userbot"]
+CMD ["python3", "-m", "userbot"]
