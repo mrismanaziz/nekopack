@@ -16,7 +16,7 @@ _get_repolink () {
         then
             echo "${REPO_MAN}/archive/${REPO_MAN_BRANCH}.zip"
         else
-            echo "${REPO_MAN}/archive/master.zip"
+            echo "${REPO_MAN}/archive/Man-Userbot.zip"
         fi
     else
         echo "aHR0cHM6Ly9naXRodWIuY29tL21yaXNtYW5heml6L01hbi1Vc2VyYm90L2FyY2hpdmUvTWFuLVVzZXJib3Quemlw" | base64 -d
